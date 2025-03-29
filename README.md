@@ -28,12 +28,12 @@ git clone https://github.com/unitreerobotics/unitree_ros_to_real.git
 git clone https://github.com/dcuevasa/unitreeG1_virtual_noetic
 # In case you are missing any of these
 sudo apt-get update
-sudo apt-get install ros-noetic-controller-interface  ros-noetic-gazebo-ros-control ros-noetic-joint-state-controller ros-noetic-effort-controllers ros-noetic-joint-trajectory-controller
+sudo apt-get install ros-noetic-controller-interface ros-noetic-gazebo-ros-control ros-noetic-joint-state-controller ros-noetic-effort-controllers ros-noetic-joint-trajectory-controller ros-noetic-robot-state-publisher
 cd ..
 catkin_make
 source devel/setup.bash
 # Launch your preferred simulation here
-roslaunch unitree_gazebo empty_world.launch rname:=g1 wname:=stairs
+roslaunch unitree_gazebo empty_world.launch rname:=g1
 ```
 
 If you face a dependency problem, you can just run `catkin_make` again.

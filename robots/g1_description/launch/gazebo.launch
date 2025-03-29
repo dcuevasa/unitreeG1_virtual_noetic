@@ -28,43 +28,19 @@
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
     <!-- Set trunk and joint positions at startup -->
     <node pkg="gazebo_ros" type="spawn_model" name="urdf_spawner" respawn="false" output="screen"
-          args="-urdf -z 0.6 -model $(arg rname)_gazebo -param robot_description"/>
+          args="-urdf -z 0.6 -model $(arg rname)_gazebo -param robot_description
+                -J left_knee_joint 0.2
+                -J right_knee_joint 0.2
+                -J left_ankle_pitch_joint -0.3
+                -J right_ankle_pitch_joint -0.3
+                -J left_hip_pitch_joint -0.1
+                -J right_hip_pitch_joint -0.1
+                -J left_hip_roll_joint 0.05
+                -J right_hip_roll_joint -0.05"/>
 
     <!-- Load joint controller configurations from YAML file to parameter server -->
     <rosparam file="$(arg dollar)$(arg robot_path)/config/robot_control.yaml" command="load"/>
 
-    <!-- load the controllers -->
-    <node pkg="controller_manager" type="spawner" name="controller_spawner" respawn="false"
-          output="screen" ns="/$(arg rname)_gazebo" args="joint_state_controller
-          
-          torso_controller
-
-          left_hip_pitch_controller   
-          left_hip_roll_controller
-          left_hip_yaw_controller
-          left_knee_controller
-          left_ankle_pitch_controller
-          left_ankle_roll_controller
-
-          right_hip_pitch_controller   
-          right_hip_roll_controller
-          right_hip_yaw_controller
-          right_knee_controller
-          right_ankle_pitch_controller
-          right_ankle_roll_controller
-
-          left_shoulder_pitch_controller
-          left_shoulder_roll_controller
-          left_shoulder_yaw_controller
-          left_elbow_pitch_controller
-          left_elbow_roll_controller
-
-          right_shoulder_pitch_controller
-          right_shoulder_roll_controller
-          right_shoulder_yaw_controller
-          right_elbow_pitch_controller
-          right_elbow_roll_controller
-        "/>
 
     <!-- convert joint states to TF transforms for rviz, etc -->
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"
@@ -72,7 +48,6 @@
         <remap from="/joint_states" to="/$(arg rname)_gazebo/joint_states"/>
     </node>
 
-    <!-- <node pkg="unitree_gazebo" type="servo" name="servo" required="true" output="screen"/> -->
 
     <!-- load the parameter unitree_controller -->
     <include file="$(find unitree_controller)/launch/set_ctrl.launch">
