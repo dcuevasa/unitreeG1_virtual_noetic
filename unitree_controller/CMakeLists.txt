@@ -12,6 +12,12 @@ find_package(catkin REQUIRED COMPONENTS
     tf
     geometry_msgs
     unitree_legged_msgs
+    controller_interface
+    hardware_interface
+    joint_trajectory_controller
+    pluginlib
+    effort_controllers
+    position_controllers
 )
 
 find_package(gazebo REQUIRED)

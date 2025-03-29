@@ -33,7 +33,7 @@ cd ..
 catkin_make
 source devel/setup.bash
 # Launch your preferred simulation here
-roslaunch unitree_gazebo normal.launch rname:=g1 wname:=stairs
+roslaunch unitree_gazebo empty_world.launch rname:=g1 wname:=stairs
 ```
 
 If you face a dependency problem, you can just run `catkin_make` again.

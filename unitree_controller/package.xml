@@ -25,6 +25,12 @@
     <exec_depend>roscpp</exec_depend>
     <exec_depend>std_msgs</exec_depend>
     <depend>unitree_legged_msgs</depend>
+    <depend>controller_interface</depend>
+    <depend>joint_trajectory_controller</depend>
+    <depend>hardware_interface</depend>
+    <depend>pluginlib</depend>
+    <depend>effort_controllers</depend>
+    <depend>position_controllers</depend>
 
     <!-- The export tag contains other, unspecified, tags -->
     <export>
