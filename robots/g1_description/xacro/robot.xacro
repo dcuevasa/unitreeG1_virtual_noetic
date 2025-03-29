@@ -256,6 +256,50 @@
     <child link="head_link"/>
   </joint>
 
+  <!-- Frames adicionales para la RealSense -->
+  <link name="realsense_rgb_frame"/>
+  <joint name="realsense_rgb_joint" type="fixed">
+    <origin xyz="0.06 0 0.48" rpy="0 0 0"/>
+    <parent link="head_link"/>
+    <child link="realsense_rgb_frame"/>
+  </joint>
+
+  <link name="realsense_depth_frame"/>
+  <joint name="realsense_depth_joint" type="fixed">
+    <origin xyz="0.06 0 0.48" rpy="0 0 0"/>
+    <parent link="head_link"/>
+    <child link="realsense_depth_frame"/>
+  </joint>
+
+  <!-- Camera link -->
+  <link name="camera_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.01 0.01 0.01"/>
+      </geometry>
+      <material name="">
+        <color rgba="0 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Camera joint - posicionada en la parte frontal de la cabeza -->
+  <joint name="camera_joint" type="fixed">
+    <origin xyz="0.06 0 0.48" rpy="0 0 0"/>
+    <parent link="head_link"/>
+    <child link="camera_link"/>
+  </joint>
+
+  <!-- Camera optical frame -->
+  <link name="camera_optical_frame"/>
+
+  <joint name="camera_optical_joint" type="fixed">
+    <origin xyz="0 0 0" rpy="-1.57079632679 0 -1.57079632679"/>
+    <parent link="camera_link"/>
+    <child link="camera_optical_frame"/>
+  </joint>
+
   <!-- IMU -->
   <link name="imu_link"></link>
   
