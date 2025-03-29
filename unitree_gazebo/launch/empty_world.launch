@@ -55,4 +55,8 @@
         <arg name="rname" value="$(arg rname)"/>
     </include>
 
+    <node name="cmd_vel" pkg="unitree_gazebo" type="g1_cmd_vel.py" output="screen">
+        <param name="model_name" value="$(arg rname)_gazebo"/>
+    </node>
+
 </launch>
