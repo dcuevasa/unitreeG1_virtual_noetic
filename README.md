@@ -26,6 +26,7 @@ cd unitree_ws/src
 git clone https://github.com/unitreerobotics/unitree_legged_sdk.git
 git clone https://github.com/unitreerobotics/unitree_ros_to_real.git
 git clone https://github.com/dcuevasa/unitreeG1_virtual_noetic
+git clone https://github.com/fratopa/Mid360_simulation_plugin.git
 # In case you are missing any of these
 sudo apt-get update
 sudo apt-get install ros-noetic-controller-interface ros-noetic-gazebo-ros-control ros-noetic-joint-state-controller ros-noetic-effort-controllers ros-noetic-joint-trajectory-controller ros-noetic-robot-state-publisher
