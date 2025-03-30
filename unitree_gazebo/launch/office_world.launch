@@ -10,6 +10,11 @@
     <arg name="debug" default="false"/>
     <!-- Debug mode will hung up the robot, use "true" or "false" to switch it. -->
     <arg name="user_debug" default="false"/>
+
+    <!-- Configure the usage of lidar using a suffix string -->
+    <!-- "_no_lidar" for NO LIDAR-->
+    <!-- "" to use the lidar -->
+    <arg name="lidar_suffix" default="_no_lidar"/>
     
     
     <!-- Configurar el path para los modelos de Gazebo -->
@@ -27,7 +32,7 @@
 
     <!-- Load the URDF into the ROS Parameter Server -->
     <param name="robot_description"
-           command="$(find xacro)/xacro --inorder '$(arg dollar)$(arg robot_path)/xacro/robot.xacro' 
+           command="$(find xacro)/xacro --inorder '$(arg dollar)$(arg robot_path)/xacro/robot$(arg lidar_suffix).xacro' 
            DEBUG:=$(arg user_debug)"/>
 
     <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->

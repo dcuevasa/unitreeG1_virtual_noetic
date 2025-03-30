@@ -40,7 +40,7 @@
   <!-- Gazebo sensor definitions for simulating the RealSense D435i -->
   <gazebo reference="head_link">
     <sensor type="camera" name="realsense_rgb_camera">
-      <pose>0.06 0 0 0 0 0</pose> 
+      <pose>0.06 0 0 0 0 0</pose>
       <update_rate>30.0</update_rate>
       <camera>
         <horizontal_fov>1.3962634</horizontal_fov>
@@ -71,7 +71,7 @@
     </sensor>
 
     <sensor type="depth" name="realsense_depth_camera">
-      <pose>0.06 0 0 0 0 0</pose>  
+      <pose>0.06 0 0 0 0 0</pose> 
       <update_rate>30.0</update_rate>
       <camera>
         <horizontal_fov>1.3962634</horizontal_fov>
@@ -99,50 +99,6 @@
         <distortionK3>0.0</distortionK3>
         <distortionT1>0.0</distortionT1>
         <distortionT2>0.0</distortionT2>
-      </plugin>
-    </sensor>
-  </gazebo>
-
-  <gazebo reference="head_link">
-    <sensor type="ray" name="livox_lidar">
-      <pose>0.06 0 0.5 0 0 0</pose>
-      <visualize>false</visualize>
-      <always_on>true</always_on>
-      <update_rate>10</update_rate>
-      <plugin name="gazebo_ros_laser_controller" filename="liblivox_laser_simulation.so">
-        <ray>
-          <scan>
-            <horizontal>
-              <samples>100</samples>
-              <resolution>1</resolution>
-              <min_angle>-3.1415926535897931</min_angle>
-              <max_angle>3.1415926535897931</max_angle>
-            </horizontal>
-            <vertical>
-              <samples>50</samples>
-              <resolution>1</resolution>
-              <min_angle>-3.1415926535897931</min_angle>
-              <max_angle>3.1415926535897931</max_angle>
-            </vertical>
-          </scan>
-          <range>
-            <min>0.1</min>
-            <max>40</max>
-            <resolution>1</resolution>
-          </range>
-          <noise>
-            <type>gaussian</type>
-            <mean>0.0</mean>
-            <stddev>0.0</stddev>
-          </noise>
-        </ray>
-        <visualize>true</visualize>
-        <samples>20000</samples>
-        <downsample>1</downsample>
-        <csv_file_name>mid360-real-centr.csv</csv_file_name>
-        <publish_pointcloud_type>2</publish_pointcloud_type>
-        <ros_topic>/livox/lidar</ros_topic>
-        <frameName>livox_lidar_frame</frameName>
       </plugin>
     </sensor>
   </gazebo>

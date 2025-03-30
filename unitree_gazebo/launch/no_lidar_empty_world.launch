@@ -14,7 +14,7 @@
     <!-- Configure the usage of lidar using a suffix string -->
     <!-- "_no_lidar" for NO LIDAR-->
     <!-- "" to use the lidar -->
-    <arg name="lidar_suffix" default=""/>
+    <arg name="lidar_suffix" default="_no_lidar"/>
     
     <include file="$(find gazebo_ros)/launch/empty_world.launch">
         <arg name="paused" value="$(arg paused)"/>
