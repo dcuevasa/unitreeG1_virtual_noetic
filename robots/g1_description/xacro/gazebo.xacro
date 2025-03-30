@@ -28,7 +28,7 @@
     </sensor>
   </gazebo>
 
-  <gazebo reference="base">
+  <gazebo reference="pelvis_contour_link">
     <turnGravityOff>false</turnGravityOff>
   </gazebo>
 
@@ -42,6 +42,7 @@
   <!-- Gazebo sensor definitions for simulating the RealSense D435i -->
   <gazebo reference="head_link">
     <sensor type="camera" name="realsense_rgb_camera">
+      <pose>0.06 0 0 0 0 0</pose>  <!-- Añade esta línea -->
       <update_rate>30.0</update_rate>
       <camera>
         <horizontal_fov>1.3962634</horizontal_fov>
@@ -72,6 +73,7 @@
     </sensor>
 
     <sensor type="depth" name="realsense_depth_camera">
+      <pose>0.06 0 0 0 0 0</pose>  <!-- Añade esta línea -->
       <update_rate>30.0</update_rate>
       <camera>
         <horizontal_fov>1.3962634</horizontal_fov>

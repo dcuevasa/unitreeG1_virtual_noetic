@@ -11,6 +11,7 @@
     <!-- Debug mode will hung up the robot, use "true" or "false" to switch it. -->
     <arg name="user_debug" default="false"/>
     
+    
     <!-- Configurar el path para los modelos de Gazebo -->
     <env name="GAZEBO_MODEL_PATH" value="$(find unitree_gazebo)/models:$(optenv GAZEBO_MODEL_PATH)"/>
     
@@ -52,6 +53,10 @@
       right_leg_trajectory_controller
       left_arm_trajectory_controller
       right_arm_trajectory_controller"/>
+
+    <node pkg="controller_manager" type="spawner" name="controller_spawner" respawn="false"
+      output="screen" ns="/$(arg rname)_gazebo" args="
+      joint_state_controller"/>
 
     <!-- convert joint states to TF transforms for rviz, etc -->
     <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"

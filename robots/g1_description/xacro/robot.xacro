@@ -263,14 +263,14 @@
   <!-- Frames adicionales para la RealSense -->
   <link name="realsense_rgb_frame" />
   <joint name="realsense_rgb_joint" type="fixed">
-    <origin xyz="0.06 0 0.48" rpy="0 0 0" />
+    <origin xyz="0.06 0 0.48" rpy="-1.57079632679 0 -1.57079632679" />
     <parent link="head_link" />
     <child link="realsense_rgb_frame" />
   </joint>
 
   <link name="realsense_depth_frame" />
   <joint name="realsense_depth_joint" type="fixed">
-    <origin xyz="0.06 0 0.48" rpy="0 0 0" />
+    <origin xyz="0.06 0 0.48" rpy="-1.57079632679 0 -1.57079632679" />
     <parent link="head_link" />
     <child link="realsense_depth_frame" />
   </joint>
